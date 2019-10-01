@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('category.index');
     }
 
     /**
@@ -34,7 +35,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cat_name' => 'required|unique:categories|max:50',
+        ]);
+
+        $cat = new Category([
+            'cat_name' =>$request->get('cat_name')
+        ]); 
+        $cat->save();
+        return redirect('/categories')->with('success', 'Category created successfully.');
     }
 
     /**

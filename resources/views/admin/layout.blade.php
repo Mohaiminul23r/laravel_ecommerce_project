@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
 	<title>Admin Dashboard</title>
@@ -25,6 +24,14 @@
 	<!-- start: Favicon -->
 	<link rel="shortcut icon" href="{{asset('backend/img/favicon.ico')}}">
 	<!-- end: Favicon -->
+
+<!-- data table link -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<!-- end of datatable link -->
+
 </head>
 <body>
 		<!-- start: Header -->
@@ -36,7 +43,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Metro</span></a>
+				<a class="brand" href="index.html"><span>Easy Shopping Center</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -304,22 +311,20 @@
 						<!-- end: User Dropdown -->
 					</ul>
 				</div>
-				<!-- end: Header Menu -->
-				
+				<!-- end: Header Menu -->		
 			</div>
 		</div>
 	</div>
 	<!-- start: Header -->
 	
 		<div class="container-fluid-full">
-		<div class="row-fluid">
-				
+		<div class="row-fluid">	
 			<!-- start: Main Menu -->
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<!-- <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
-						<li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
+						<li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+					<!-- 	<li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
 						<li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
 						<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
 						<li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li> -->
@@ -360,12 +365,13 @@
 				</li>
 				<li><a href="#">Dashboard</a></li>
 			</ul>
+
 			<div class="row-fluid">		
+				@yield('body')
 			</div>				
 			</div>		
 
 	</div><!--/.fluid-container-->
-	
 			<!-- end: Content -->
 	</div><!--/#content.span10-->
 		</div><!--/fluid-row-->
@@ -383,76 +389,46 @@
 			<a href="#" class="btn btn-primary">Save changes</a>
 		</div>
 	</div>
-	
 	<div class="clearfix"></div>
-	
 	<footer>
-
 		<p>
-			<span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">creativeLabs</a></span>
+			<span style="text-align:left;float:left">&copy; 2019 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">Md. Mohaiminul Islam</a></span>
 			<span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://admintemplates.co/" alt="Bootstrap Admin Templates">Easy Shopping Ceanter</a></span>
 		</p>
-
 	</footer>
 	
 	<!-- start: JavaScript-->
-
 		<script src="{{asset('backend/js/jquery-1.9.1.min.js')}}"></script>
 		<script src="{{asset('backend/js/jquery-migrate-1.0.0.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.ui.touch-punch.js')}}"></script>
-	
 		<script src="{{asset('backend/js/modernizr.js')}}"></script>
-	
 		<script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.cookie.js')}}"></script>
-	
 		<script src="{{asset('backend/js/fullcalendar.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.dataTables.min.js')}}"></script>
-
 		<script src="{{asset('backend/js/excanvas.js')}}"></script>
 		<script src="{{asset('backend/js/jquery.flot.js')}}"></script>
 		<script src="{{asset('backend/js/jquery.flot.pie.js')}}"></script>
 		<script src="{{asset('backend/js/jquery.flot.stack.js')}}"></script>
 		<script src="{{asset('backend/js/jquery.flot.resize.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.chosen.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.uniform.min.js')}}"></script>
-		
 		<script src="{{asset('backend/js/jquery.cleditor.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.noty.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.elfinder.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.raty.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.iphone.toggle.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.uploadify-3.1.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.gritter.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.imagesloaded.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.masonry.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.knob.modified.js')}}"></script>
-	
 		<script src="{{asset('backend/js/jquery.sparkline.min.js')}}"></script>
-	
 		<script src="{{asset('backend/js/counter.js')}}"></script>
-	
 		<script src="{{asset('backend/js/retina.js')}}"></script>
-
 		<script src="{{asset('backend/js/custom.js')}}"></script>
 	<!-- end: JavaScript-->
-	
 </body>
 
 </html>
