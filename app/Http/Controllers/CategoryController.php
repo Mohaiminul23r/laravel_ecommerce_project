@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Session;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+session_start();
 
 class CategoryController extends Controller
 {
@@ -14,7 +18,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category.index');
+        $categories = \App\Category::all();
+        return view('category.index', ['categories' => $categories]);
     }
 
     /**
@@ -35,15 +40,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'cat_name' => 'required|unique:categories|max:50',
-        ]);
-
-        $cat = new Category([
-            'cat_name' =>$request->get('cat_name')
-        ]); 
-        $cat->save();
-        return redirect('/categories')->with('success', 'Category created successfully.');
+       $data = array();
+       $data['cat_name'] = $request->cat_name;
+       $data['description'] = $request->cat_description;
+       $data['status'] = $request->status;
+       DB::table('categories')->insert($data);
+       Session::put('message', 'Category Inserted Successfully!!');
+       return Redirect::to('/categories');
     }
 
     /**
@@ -54,7 +57,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -65,7 +68,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+       $data = \App\Category::findOrFail($id);
+       return view('category.edit_cat', ['data' => $data]);
+       //dd($data);
     }
 
     /**

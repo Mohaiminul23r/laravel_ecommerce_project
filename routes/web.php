@@ -34,5 +34,5 @@ Route::post('/adminlogin', 'AdminController@adminLogin')->name('adminlogin');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('categories', 'CategoryController');
 
-Route::resource('/categories', 'CategoryController');
